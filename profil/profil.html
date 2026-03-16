@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil - VitaFit</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">VitaFit</div>
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="../index.html">Acasă</a></li>
+                <li><a href="../bmi-calculator/bmi-calculator.html">Calculator BMI</a></li>
+                <li><a href="../exercitii/exercitii.html">Exerciții Fizice</a></li>
+                <li><a href="../nutritie/nutritie.html">Nutriție & Stil de Viață</a></li>
+                <li><a href="../progres/progres.html">Progresul Tău</a></li>
+                <li><a href="../profil/profil.html" class="profile-link active">Profil</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="profile-container">
+            <div class="auth-form">
+                <h2>Contul Meu</h2>
+                
+                <div class="auth-tabs">
+                    <button class="auth-tab active" onclick="switchTab('login')">Conectare</button>
+                    <button class="auth-tab" onclick="switchTab('register')">Înregistrare</button>
+                </div>
+
+                <!-- Login Form -->
+                <div class="auth-content active" id="loginContent">
+                    <form id="loginForm" onsubmit="handleLogin(event)">
+                        <div class="form-group">
+                            <label for="loginEmail">Email:</label>
+                            <input type="email" id="loginEmail" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="loginPassword">Parolă:</label>
+                            <input type="password" id="loginPassword" required>
+                        </div>
+                        <button type="submit" class="btn">Conectează-te</button>
+                    </form>
+                </div>
+
+                <!-- Register Form -->
+                <div class="auth-content" id="registerContent">
+                    <form id="registerForm" onsubmit="handleRegister(event)">
+                        <div class="form-group">
+                            <label for="registerName">Nume:</label>
+                            <input type="text" id="registerName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="registerEmail">Email:</label>
+                            <input type="email" id="registerEmail" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="registerPassword">Parolă:</label>
+                            <input type="password" id="registerPassword" required minlength="6">
+                        </div>
+                        <div class="form-group">
+                            <label for="registerPasswordConfirm">Confirmă parola:</label>
+                            <input type="password" id="registerPasswordConfirm" required>
+                        </div>
+                        <button type="submit" class="btn">Înregistrează-te</button>
+                    </form>
+                </div>
+
+                <!-- User Dashboard (shown after login) -->
+                <div id="userDashboard" style="display: none;">
+                    <div style="text-align: center; margin-bottom: 2rem;">
+                        <i class="fas fa-user-circle" style="font-size: 4rem; color: var(--primary-green); margin-bottom: 1rem;"></i>
+                        <h3 id="userName"></h3>
+                        <p id="userEmail"></p>
+                    </div>
+                    <div style="display: flex; flex-direction: column; gap: 1rem;">
+                        <a href="progres.html" class="btn">Vezi Progresul Tău</a>
+                        <button class="btn btn-secondary" onclick="handleLogout()">Deconectează-te</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <h3>Contact</h3>
+            <div class="social-icons">
+                <a href="#" class="social-icon" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="social-icon" aria-label="Facebook">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="#" class="social-icon" aria-label="WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+            </div>
+            <p class="phone">Tel: +40 721 234 567</p>
+        </div>
+    </footer>
+
+    <script src="../api.js"></script>
+    <script src="../script.js"></script>
+    <script src="profil.js"></script>
+</body>
+</html>
+

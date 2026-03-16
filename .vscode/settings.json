@@ -1,0 +1,10 @@
+{
+    "titan.extension.excludedFromBuild": [
+        "/.git/refs/remotes",
+        "/.git/logs/refs/remotes",
+        "/.git/logs/refs/remotes/origin",
+        "/.git/logs/refs/remotes/origin/main",
+        "/.git/refs/remotes/origin",
+        "/.git/refs/remotes/origin/main"
+    ]
+}

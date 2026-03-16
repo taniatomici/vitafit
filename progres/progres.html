@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progresul Tău - VitaFit</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">VitaFit</div>
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="../index.html">Acasă</a></li>
+                <li><a href="../bmi-calculator/bmi-calculator.html">Calculator BMI</a></li>
+                <li><a href="../exercitii/exercitii.html">Exerciții Fizice</a></li>
+                <li><a href="../nutritie/nutritie.html">Nutriție & Stil de Viață</a></li>
+                <li><a href="../progres/progres.html" class="active">Progresul Tău</a></li>
+                <li><a href="../profil/profil.html" class="profile-link">Profil</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="progress-container">
+            <h1 style="color: var(--primary-green); margin-bottom: 2rem; text-align: center;">Progresul Tău</h1>
+
+            <div id="progressLoginNotice" class="progress-notice" style="display: none;">
+                <p><i class="fas fa-info-circle"></i> Trebuie să fii conectat pentru a salva și vedea progresul.</p>
+                <a href="../profil/profil.html" class="btn">Conectează-te</a>
+            </div>
+
+            <!-- Past progress entries (for logged-in users) -->
+            <div id="progressHistorySection" style="display: none; margin-bottom: 2rem;">
+                <h2 style="color: var(--primary-green); margin-bottom: 1rem;">Istoricul tău</h2>
+                <div id="progressHistoryList" class="progress-history-list"></div>
+            </div>
+
+            <!-- Progress Steps -->
+            <div class="progress-steps">
+                <div class="step active" data-step="1">
+                    <div class="step-number">1</div>
+                    <div class="step-label">Fotografii</div>
+                </div>
+                <div class="step" data-step="2">
+                    <div class="step-number">2</div>
+                    <div class="step-label">Greutate</div>
+                </div>
+                <div class="step" data-step="3">
+                    <div class="step-number">3</div>
+                    <div class="step-label">Măsurători</div>
+                </div>
+                <div class="step" data-step="4">
+                    <div class="step-number">4</div>
+                    <div class="step-label">Informații</div>
+                </div>
+            </div>
+
+            <!-- Step 1: Photos -->
+            <div class="step-form active" id="step1">
+                <h2>Fotografii</h2>
+                <p>Încarcă fotografii din frontal, lateral și spate pentru a-ți urmări progresul.</p>
+                
+                <div class="form-group">
+                    <label>Fotografie frontală:</label>
+                    <div class="file-upload" onclick="document.getElementById('photoFront').click()">
+                        <i class="fas fa-camera" style="font-size: 2rem; color: var(--primary-green); margin-bottom: 1rem;"></i>
+                        <p>Click pentru a încărca</p>
+                        <input type="file" id="photoFront" accept="image/*" onchange="previewImage(this, 'previewFront')">
+                    </div>
+                    <div id="previewFront" class="image-preview"></div>
+                </div>
+
+                <div class="form-group">
+                    <label>Fotografie laterală:</label>
+                    <div class="file-upload" onclick="document.getElementById('photoSide').click()">
+                        <i class="fas fa-camera" style="font-size: 2rem; color: var(--primary-green); margin-bottom: 1rem;"></i>
+                        <p>Click pentru a încărca</p>
+                        <input type="file" id="photoSide" accept="image/*" onchange="previewImage(this, 'previewSide')">
+                    </div>
+                    <div id="previewSide" class="image-preview"></div>
+                </div>
+
+                <div class="form-group">
+                    <label>Fotografie spate:</label>
+                    <div class="file-upload" onclick="document.getElementById('photoBack').click()">
+                        <i class="fas fa-camera" style="font-size: 2rem; color: var(--primary-green); margin-bottom: 1rem;"></i>
+                        <p>Click pentru a încărca</p>
+                        <input type="file" id="photoBack" accept="image/*" onchange="previewImage(this, 'previewBack')">
+                    </div>
+                    <div id="previewBack" class="image-preview"></div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" disabled>Înapoi</button>
+                    <button type="button" class="btn" onclick="nextStep(2)">Următorul</button>
+                </div>
+            </div>
+
+            <!-- Step 2: Weight -->
+            <div class="step-form" id="step2">
+                <h2>Greutate</h2>
+                
+                <div class="form-group">
+                    <label for="currentWeight">Greutate actuală (kg):</label>
+                    <input type="number" id="currentWeight" step="0.1" min="1" max="300" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="targetWeight">Greutate țintă (kg):</label>
+                    <input type="number" id="targetWeight" step="0.1" min="1" max="300" required>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" onclick="prevStep(1)">Înapoi</button>
+                    <button type="button" class="btn" onclick="nextStep(3)">Următorul</button>
+                </div>
+            </div>
+
+            <!-- Step 3: Measurements -->
+            <div class="step-form" id="step3">
+                <h2>Măsurători Corporale (cm)</h2>
+                
+                <div class="form-group">
+                    <label for="bust">Bust:</label>
+                    <input type="number" id="bust" step="0.1" min="1" max="200">
+                </div>
+
+                <div class="form-group">
+                    <label for="talie">Talie:</label>
+                    <input type="number" id="talie" step="0.1" min="1" max="200">
+                </div>
+
+                <div class="form-group">
+                    <label for="solduri">Șolduri:</label>
+                    <input type="number" id="solduri" step="0.1" min="1" max="200">
+                </div>
+
+                <div class="form-group">
+                    <label for="coapse">Coapse:</label>
+                    <input type="number" id="coapse" step="0.1" min="1" max="200">
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" onclick="prevStep(2)">Înapoi</button>
+                    <button type="button" class="btn" onclick="nextStep(4)">Următorul</button>
+                </div>
+            </div>
+
+            <!-- Step 4: Additional Info -->
+            <div class="step-form" id="step4">
+                <h2>Informații Suplimentare</h2>
+                
+                <div class="form-group">
+                    <label for="age">Vârstă:</label>
+                    <input type="number" id="age" min="1" max="120" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="height">Înălțime (cm):</label>
+                    <input type="number" id="height" step="0.1" min="50" max="250" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="activity">Cât de activ ești?</label>
+                    <select id="activity" required>
+                        <option value="">Selectează</option>
+                        <option value="sedentary">Sedentary (puțină mișcare)</option>
+                        <option value="light">Ușor activ (1-3 zile/săptămână)</option>
+                        <option value="moderate">Moderat activ (3-5 zile/săptămână)</option>
+                        <option value="active">Foarte activ (6-7 zile/săptămână)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="sleep">Câte ore dormi pe noapte?</label>
+                    <input type="number" id="sleep" step="0.5" min="0" max="24" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="water">Câtă apă bei într-o zi (litri)?</label>
+                    <input type="number" id="water" step="0.1" min="0" max="10" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="meals">Câte mese mănânci pe zi?</label>
+                    <input type="number" id="meals" min="1" max="10" required>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" onclick="prevStep(3)">Înapoi</button>
+                    <button type="button" class="btn" onclick="submitProgress()">Salvează</button>
+                </div>
+            </div>
+
+            <!-- Success Message -->
+            <div id="successMessage" style="display: none; text-align: center; padding: 2rem; background-color: var(--light-green); color: var(--white); border-radius: 10px; margin-top: 2rem;">
+                <i class="fas fa-check-circle" style="font-size: 3rem; margin-bottom: 1rem;"></i>
+                <h2>Datele tale au fost salvate cu succes!</h2>
+                <p>Poți reveni aici oricând pentru a actualiza progresul tău.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <h3>Contact</h3>
+            <div class="social-icons">
+                <a href="#" class="social-icon" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="social-icon" aria-label="Facebook">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="#" class="social-icon" aria-label="WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+            </div>
+            <p class="phone">Tel: +40 721 234 567</p>
+        </div>
+    </footer>
+
+    <script src="../api.js"></script>
+    <script src="../script.js"></script>
+    <script src="progres.js"></script>
+</body>
+</html>
+

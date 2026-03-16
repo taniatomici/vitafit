@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exerciții Fizice - VitaFit</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">VitaFit</div>
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="../index.html">Acasă</a></li>
+                <li><a href="../bmi-calculator/bmi-calculator.html">Calculator BMI</a></li>
+                <li><a href="../exercitii/exercitii.html" class="active">Exerciții Fizice</a></li>
+                <li><a href="../nutritie/nutritie.html">Nutriție & Stil de Viață</a></li>
+                <li><a href="../progres/progres.html">Progresul Tău</a></li>
+                <li><a href="../profil/profil.html" class="profile-link">Profil</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="exercises-container">
+            <h1 style="color: var(--primary-green); margin-bottom: 2rem; text-align: center;">Exerciții Fizice</h1>
+
+            <!-- Categories (loaded from API / database) -->
+            <div class="exercises-grid" id="categoriesGrid">
+                <p class="loading-text">Se încarcă categoriile...</p>
+            </div>
+
+            <!-- Videos Section -->
+            <div class="videos-section" id="videosSection">
+                <button class="btn back-button" id="backButton">Înapoi la categorii</button>
+                <h2 id="categoryTitle" style="color: var(--primary-green); margin-bottom: 2rem;"></h2>
+
+                <div class="video-level">
+                    <h3>Începător</h3>
+                    <div class="videos-grid" id="beginnerVideos"></div>
+                </div>
+
+                <div class="video-level">
+                    <h3>Intermediar</h3>
+                    <div class="videos-grid" id="intermediateVideos"></div>
+                </div>
+
+                <div class="video-level">
+                    <h3>Avansat</h3>
+                    <div class="videos-grid" id="advancedVideos"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <h3>Contact</h3>
+            <div class="social-icons">
+                <a href="#" class="social-icon" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="social-icon" aria-label="Facebook">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="#" class="social-icon" aria-label="WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+            </div>
+            <p class="phone">Tel: +40 721 234 567</p>
+        </div>
+    </footer>
+
+    <script src="../api.js"></script>
+    <script src="../script.js"></script>
+    <script src="exercitii.js"></script>
+</body>
+</html>
+

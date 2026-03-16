@@ -1,0 +1,780 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-green: #2d8659;
+    --light-green: #4caf7a;
+    --dark-green: #1e5d3f;
+    --white: #ffffff;
+    --light-gray: #f5f5f5;
+    --text-dark: #333333;
+    --yellow: #ffc107;
+    --red: #f44336;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--white);
+    color: var(--text-dark);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Navigation */
+.navbar {
+    background-color: var(--white);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--primary-green);
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--primary-green);
+    cursor: pointer;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    align-items: center;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+    color: var(--primary-green);
+}
+
+.profile-link {
+    background-color: var(--primary-green);
+    color: var(--white) !important;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.profile-link:hover {
+    background-color: var(--dark-green);
+}
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    width: 100%;
+}
+
+.hero {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: linear-gradient(135deg, var(--light-green) 0%, var(--primary-green) 100%);
+    border-radius: 10px;
+    margin-bottom: 3rem;
+}
+
+.hero-title {
+    color: var(--white);
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.about-section {
+    background-color: var(--light-gray);
+    padding: 3rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+}
+
+.about-section h2 {
+    color: var(--primary-green);
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+}
+
+.about-content p {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.about-content strong {
+    color: var(--primary-green);
+    font-weight: 700;
+}
+
+/* Footer */
+.footer {
+    background-color: var(--primary-green);
+    color: var(--white);
+    padding: 2rem;
+    margin-top: auto;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.footer-content h3 {
+    margin-bottom: 1rem;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.social-icon {
+    color: var(--white);
+    font-size: 2rem;
+    transition: transform 0.3s;
+}
+
+.social-icon:hover {
+    transform: scale(1.2);
+}
+
+.phone {
+    margin-top: 1rem;
+    font-size: 1.1rem;
+}
+
+/* BMI Calculator Styles */
+.bmi-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    background-color: var(--white);
+    padding: 3rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.bmi-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 0.75rem;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-green);
+}
+
+.contact-form {
+    max-width: 500px;
+    margin-top: 1rem;
+}
+
+.form-feedback {
+    margin-top: 1rem;
+    font-weight: 500;
+}
+
+.loading-text {
+    color: var(--text-dark);
+    font-style: italic;
+}
+
+.btn {
+    background-color: var(--primary-green);
+    color: var(--white);
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: var(--dark-green);
+}
+
+.bmi-result {
+    margin-top: 2rem;
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+    display: none;
+}
+
+.bmi-result.show {
+    display: block;
+}
+
+.bmi-result.good {
+    background-color: var(--light-green);
+    color: var(--white);
+}
+
+.bmi-result.warning {
+    background-color: var(--yellow);
+    color: var(--text-dark);
+}
+
+.bmi-result.danger {
+    background-color: var(--red);
+    color: var(--white);
+}
+
+.bmi-value {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.bmi-interpretation {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.exercise-link {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--white);
+    color: var(--red);
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: transform 0.3s;
+}
+
+.exercise-link:hover {
+    transform: scale(1.05);
+}
+
+/* Exercises Page */
+.exercises-container {
+    padding: 2rem;
+}
+
+.exercises-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.exercise-card {
+    background-color: var(--white);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.exercise-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.exercise-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.exercise-card h3 {
+    padding: 1.5rem;
+    color: var(--primary-green);
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.videos-section {
+    display: none;
+    margin-top: 3rem;
+}
+
+.videos-section.show {
+    display: block;
+}
+
+.video-level {
+    margin-bottom: 3rem;
+}
+
+.video-level h3 {
+    color: var(--primary-green);
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+}
+
+.videos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.video-item {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.video-item iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.back-button {
+    margin-bottom: 2rem;
+    background-color: var(--light-gray);
+    color: var(--text-dark);
+}
+
+/* Nutrition Page */
+.nutrition-container {
+    padding: 2rem;
+}
+
+.articles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.article-card {
+    background-color: var(--white);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.article-card:hover {
+    transform: translateY(-5px);
+}
+
+.article-card h3 {
+    padding: 1.5rem;
+    color: var(--primary-green);
+    font-size: 1.3rem;
+}
+
+.article-card p {
+    padding: 0 1.5rem 1.5rem;
+    color: var(--text-dark);
+}
+
+.recipes-section {
+    margin-top: 4rem;
+}
+
+.recipes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.recipe-card {
+    background-color: var(--white);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.recipe-card:hover {
+    transform: translateY(-5px);
+}
+
+.recipe-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.recipe-card-content {
+    padding: 1.5rem;
+}
+
+.recipe-card h4 {
+    color: var(--primary-green);
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.recipe-card p {
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+.recipe-link {
+    color: var(--primary-green);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.recipe-link:hover {
+    text-decoration: underline;
+}
+
+.recipe-detail {
+    display: none;
+    max-width: 800px;
+    margin: 2rem auto;
+    background-color: var(--white);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.recipe-detail.show {
+    display: block;
+}
+
+.recipe-detail img {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+}
+
+/* Progress Page */
+.progress-container {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 2rem;
+}
+
+.progress-notice {
+    background-color: var(--light-gray);
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1.25rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.progress-notice p {
+    margin-bottom: 1rem;
+}
+
+.progress-notice .btn {
+    display: inline-block;
+}
+
+.progress-history-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.progress-history-card {
+    background: var(--white);
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
+.progress-history-card-header {
+    background-color: var(--light-green);
+    color: var(--white);
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+}
+
+.progress-history-card-body {
+    padding: 1rem;
+}
+
+.progress-history-card-body p {
+    margin: 0.25rem 0;
+    font-size: 0.95rem;
+}
+
+.progress-history-thumbs {
+    margin-bottom: 0.75rem;
+}
+
+.progress-history-thumb {
+    max-width: 80px;
+    max-height: 80px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-right: 0.5rem;
+    vertical-align: middle;
+}
+
+.progress-steps {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.progress-steps::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: #ddd;
+    z-index: 0;
+}
+
+.step {
+    flex: 1;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.step-number {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #ddd;
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 0.5rem;
+    font-weight: bold;
+}
+
+.step.active .step-number {
+    background-color: var(--primary-green);
+}
+
+.step.completed .step-number {
+    background-color: var(--light-green);
+}
+
+.step-form {
+    display: none;
+    background-color: var(--white);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.step-form.active {
+    display: block;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+}
+
+.btn-secondary {
+    background-color: var(--light-gray);
+    color: var(--text-dark);
+}
+
+.btn-secondary:hover {
+    background-color: #ddd;
+}
+
+.file-upload {
+    border: 2px dashed #ddd;
+    border-radius: 10px;
+    padding: 2rem;
+    text-align: center;
+    cursor: pointer;
+    transition: border-color 0.3s;
+}
+
+.file-upload:hover {
+    border-color: var(--primary-green);
+}
+
+.file-upload input {
+    display: none;
+}
+
+.image-preview {
+    margin-top: 1rem;
+}
+
+.image-preview img {
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Profile Page */
+.profile-container {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2rem;
+}
+
+.auth-form {
+    background-color: var(--white);
+    padding: 3rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.auth-form h2 {
+    color: var(--primary-green);
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.auth-tabs {
+    display: flex;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid #ddd;
+}
+
+.auth-tab {
+    flex: 1;
+    padding: 1rem;
+    text-align: center;
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-size: 1.1rem;
+    color: var(--text-dark);
+    transition: color 0.3s;
+}
+
+.auth-tab.active {
+    color: var(--primary-green);
+    border-bottom: 3px solid var(--primary-green);
+}
+
+.auth-content {
+    display: none;
+}
+
+.auth-content.active {
+    display: block;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        flex-direction: column;
+        background-color: var(--white);
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 10px 27px rgba(0,0,0,0.05);
+        padding: 2rem 0;
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .hero-title {
+        font-size: 1.8rem;
+    }
+
+    .about-section {
+        padding: 2rem 1.5rem;
+    }
+
+    .progress-steps {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .progress-steps::before {
+        display: none;
+    }
+
+    .videos-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .exercises-grid,
+    .articles-grid,
+    .recipes-grid {
+        grid-template-columns: 1fr;
+    }
+}
+

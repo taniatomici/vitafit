@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VitaFit - Stilul tău de viață sănătos</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">VitaFit</div>
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="active">Acasă</a></li>
+                <li><a href="bmi-calculator/bmi-calculator.html">Calculator BMI</a></li>
+                <li><a href="exercitii/exercitii.html">Exerciții Fizice</a></li>
+                <li><a href="nutritie/nutritie.html">Nutriție & Stil de Viață</a></li>
+                <li><a href="progres/progres.html">Progresul Tău</a></li>
+                <li><a href="profil/profil.html" class="profile-link">Profil</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <section class="hero">
+            <h1 class="hero-title">VitaFit – stilul tău de viață sănătos începe aici</h1>
+        </section>
+
+        <section class="about-section">
+            <h2>Despre noi</h2>
+            <div class="about-content">
+                <p>VitaFit este un proiect educațional realizat din dorința de a promova un stil de viață mai sănătos și mai activ. Ideea site-ului a pornit de la observarea importanței mișcării, a echilibrului și a informării corecte în menținerea sănătății, mai ales în rândul tinerilor.</p>
+                
+                <p>Scopul nostru este de a oferi utilizatorilor informații ușor de înțeles, exerciții accesibile și instrumente simple, precum calculatorul BMI, care să ajute la o mai bună înțelegere a propriei stări fizice. <strong>VitaFit nu își propune să înlocuiască sfatul medical sau al specialiștilor</strong>, ci să fie un punct de plecare pentru cei care doresc să adopte obiceiuri mai sănătoase.</p>
+                
+                <p>Prin acest proiect ne dorim să încurajăm mișcarea zilnică, responsabilitatea față de propriul corp și interesul pentru sănătate, folosind o platformă prietenoasă și ușor de utilizat.</p>
+            </div>
+        </section>
+
+        <section class="about-section" id="latestPostsSection">
+            <h2>Ultimele articole</h2>
+            <div class="articles-grid" id="latestPostsGrid">
+                <p class="loading-text" id="latestPostsLoading">Se încarcă articolele...</p>
+            </div>
+        </section>
+
+        <section class="about-section" id="contactSection">
+            <h2>Trimite-ne un mesaj</h2>
+            <form id="contactForm" class="contact-form">
+                <div class="form-group">
+                    <label for="contactName">Nume</label>
+                    <input type="text" id="contactName" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="contactEmail">Email</label>
+                    <input type="email" id="contactEmail" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="contactSubject">Subiect</label>
+                    <input type="text" id="contactSubject" name="subject" required>
+                </div>
+                <div class="form-group">
+                    <label for="contactMessage">Mesaj</label>
+                    <textarea id="contactMessage" name="message" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="btn">Trimite</button>
+                <p id="contactFormMessage" class="form-feedback" style="display:none;"></p>
+            </form>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <h3>Contact</h3>
+            <div class="social-icons">
+                <a href="#" class="social-icon" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="social-icon" aria-label="Facebook">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="#" class="social-icon" aria-label="WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+            </div>
+            <p class="phone">Tel: +40 721 234 567</p>
+        </div>
+    </footer>
+
+    <script src="api.js"></script>
+    <script src="script.js"></script>
+    <script>
+      (function() {
+        const grid = document.getElementById('latestPostsGrid');
+        const loading = document.getElementById('latestPostsLoading');
+        if (!grid) return;
+        VitaFitAPI.getPosts({ status: 'published' })
+          .then(function(posts) {
+            loading.remove();
+            if (!posts.length) {
+              grid.innerHTML = '<p>Momentan nu există articole publicate.</p>';
+              return;
+            }
+            posts.slice(0, 6).forEach(function(p) {
+              var card = document.createElement('div');
+              card.className = 'article-card';
+              card.innerHTML = '<h3>' + (p.title || '') + '</h3><p>' + (p.content ? p.content.replace(/<[^>]+>/g, '').slice(0, 120) + '…') + '</p><a href="nutritie/nutritie.html?post=' + encodeURIComponent(p.slug) + '">Citește mai mult</a>';
+              grid.appendChild(card);
+            });
+          })
+          .catch(function() {
+            loading.textContent = 'Nu s-au putut încărca articolele. Verifică dacă serverul rulează.';
+          });
+
+      document.getElementById('contactForm') && document.getElementById('contactForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        var msgEl = document.getElementById('contactFormMessage');
+        var name = document.getElementById('contactName').value;
+        var email = document.getElementById('contactEmail').value;
+        var subject = document.getElementById('contactSubject').value;
+        var message = document.getElementById('contactMessage').value;
+        msgEl.style.display = 'none';
+        VitaFitAPI.sendContactMessage({ name: name, email: email, subject: subject, message: message })
+          .then(function() {
+            msgEl.textContent = 'Mesajul tău a fost trimis. Mulțumim!';
+            msgEl.style.color = 'var(--primary-green)';
+            msgEl.style.display = 'block';
+            document.getElementById('contactForm').reset();
+          })
+          .catch(function() {
+            msgEl.textContent = 'Mesajul nu a putut fi trimis. Încearcă din nou.';
+            msgEl.style.color = 'var(--red)';
+            msgEl.style.display = 'block';
+          });
+      });
+      })();
+    </script>
+</body>
+</html>
+
