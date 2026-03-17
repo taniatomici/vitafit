@@ -1,6 +1,6 @@
 // Shared API client — use this so the frontend talks to the backend (MySQL)
 window.VitaFitAPI = {
-  baseUrl: 'http://localhost:4000/api',
+  baseUrl: 'https://vitafit3.vercel.app/api',
 
   async get(path) {
     const res = await fetch(this.baseUrl + path);
@@ -64,7 +64,7 @@ window.VitaFitAPI = {
     return res.json();
   },
 
-  /** Base URL for content (uploaded images). e.g. http://localhost:4000 */
+  /** Base URL for content (uploaded images). e.g. https://vitafit3.vercel.app */
   get contentBaseUrl() {
     return this.baseUrl.replace(/\/api\/?$/, '');
   }
