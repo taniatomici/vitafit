@@ -54,7 +54,11 @@ const exerciseVideos = {
     advanced: [
       '9xlHilg5FYc', // workout hipertrofie gantere
       '_yTQdEDLcuc', // superserii, intensitate
+<<<<<<< HEAD
       'Ag7Dui9Plys' // total body forță (Jeff Cavaliere / Athlean-X – „Perfect Total Body”)
+=======
+      'R6gZoAzAhCg' // total body forță (Jeff Cavaliere / Athlean-X – „Perfect Total Body”)
+>>>>>>> 7bdeb8abc8e34d5bc3671d785ea1ea2aa9d6a1a0
     ]
   },
   // Mobilitate: stretching, mobilitate articulară, recuperare
