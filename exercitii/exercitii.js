@@ -35,7 +35,7 @@ const exerciseVideos = {
     ],
     advanced: [
       '5xCRFuDeagc', // repetă cu greutăți mai mari pentru intensitate
-      'RooFVtPjLzE', // 15 min HIIT intens, full body (Chloe Ting – Summer Shred)
+      'JDgc6CxwEMI', // 15 min HIIT intens, full body (Chloe Ting – Summer Shred)
       'jNzu-iktQ_8' // variante mai rapide / mai multe repetări
     ]
   },
@@ -43,8 +43,8 @@ const exerciseVideos = {
   'masa-musculara': {
     beginner: [
       'O2onp4Xxu-Y', // 20 min full body cu gantere, începători
-      'Gze8oMuj4as', // Fitness Blender – forță & core începători, low impact
-      'l9_SoClAO5g' // Caroline Girvan – 20 min full body cu gantere, fără repetări
+      'GjAhM651ZPU', // Fitness Blender – forță & core începători, low impact
+      'icoe6C2E-aY' // Caroline Girvan – 20 min full body cu gantere, fără repetări
     ],
     intermediate: [
       '_yTQdEDLcuc', // full body gantere, forță & masă
