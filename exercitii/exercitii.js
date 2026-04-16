@@ -35,7 +35,7 @@ const exerciseVideos = {
     ],
     advanced: [
       '5xCRFuDeagc', // repetă cu greutăți mai mari pentru intensitate
-      'gC_L9qAJV9M', // antrenament intens tip „shred” (Chloe Ting – faimos)
+      'RooFVtPjLzE', // 15 min HIIT intens, full body (Chloe Ting – Summer Shred)
       'jNzu-iktQ_8' // variante mai rapide / mai multe repetări
     ]
   },
@@ -43,8 +43,8 @@ const exerciseVideos = {
   'masa-musculara': {
     beginner: [
       'O2onp4Xxu-Y', // 20 min full body cu gantere, începători
-      'vH9QJbs0Q4g', // Fitness Blender – forță corp întreg
-      'pJ2xI9A26lY' // Caroline Girvan – EPIC Beginner (zi1, gantere opționale)
+      'Gze8oMuj4as', // Fitness Blender – forță & core începători, low impact
+      'l9_SoClAO5g' // Caroline Girvan – 20 min full body cu gantere, fără repetări
     ],
     intermediate: [
       '_yTQdEDLcuc', // full body gantere, forță & masă
@@ -54,7 +54,7 @@ const exerciseVideos = {
     advanced: [
       '9xlHilg5FYc', // workout hipertrofie gantere
       '_yTQdEDLcuc', // superserii, intensitate
-      '1V74zn0cS84' // total body forță (Jeff Cavaliere / Athlean-X)
+      'Ag7Dui9Plys' // total body forță (Jeff Cavaliere / Athlean-X – „Perfect Total Body”)
     ]
   },
   // Mobilitate: stretching, mobilitate articulară, recuperare
