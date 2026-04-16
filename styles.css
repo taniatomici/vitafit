@@ -240,6 +240,26 @@ body {
     font-style: italic;
 }
 
+.mock-data-notice {
+    background-color: #fff8e6;
+    border: 1px solid #e6d9a8;
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    margin-bottom: 1.25rem;
+    font-size: 0.95rem;
+    color: var(--text-dark);
+}
+
+.embed-hint {
+    font-size: 0.9rem;
+    color: #555;
+    text-align: center;
+    margin: -1rem auto 1.5rem;
+    max-width: 720px;
+    line-height: 1.5;
+    padding: 0 1rem;
+}
+
 .btn {
     background-color: var(--primary-green);
     color: var(--white);
